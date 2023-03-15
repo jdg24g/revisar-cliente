@@ -10,7 +10,7 @@ app.title('Revisar Clientes')
 
 def button_callback():
     try:
-        print("Button click", entry_1.get())
+        print("Verificando", entry_1.get())
         total = check_cliente(ip=entry_1.get())
         dialog = customtkinter.CTkToplevel()
         dialog.geometry('1280x720')
@@ -34,7 +34,7 @@ label_1.pack(pady=10, padx=10)
 entry_1 = customtkinter.CTkEntry(master=frame_1, placeholder_text="Ingresar la IP")
 entry_1.pack(pady=10, padx=10)
 
-button_1 = customtkinter.CTkButton(text='verificar',master=frame_1, command=button_callback)
+button_1 = customtkinter.CTkButton(text='VERIFICAR',master=frame_1, command=button_callback)
 button_1.pack(pady=10, padx=10)
 
 app.mainloop()
