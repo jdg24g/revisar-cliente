@@ -1,6 +1,7 @@
 import customtkinter
 import tkinter
 from revisar_cliente import check_cliente
+from ssh_ether import open_test, mirar_test
 customtkinter.set_appearance_mode("dark")  # Modes: "System" (standard), "Dark", "Light"
 customtkinter.set_default_color_theme("green")  # Themes: "blue" (standard), "green", "dark-blue"
 
@@ -13,7 +14,7 @@ def button_callback():
         print("Verificando", entry_1.get())
         total = check_cliente(ip=entry_1.get())
         dialog = customtkinter.CTkToplevel()
-        dialog.geometry('1280x720')
+        dialog.geometry('720x720')
         dialog.title("resultado")
 
         frame_2 = customtkinter.CTkFrame(master=dialog)
@@ -24,6 +25,11 @@ def button_callback():
         textbox.insert("0.0", f"{total}")
     except:
         return 'Ocurrio un error'
+def velocidad():
+    try:
+        print('Enpezando test de velocidad')        
+    except:
+        print(f'algo salio mal')
 
 frame_1 = customtkinter.CTkFrame(master=app)
 frame_1.pack(pady=20, padx=60, fill="both", expand=True)
@@ -36,5 +42,17 @@ entry_1.pack(pady=10, padx=10)
 
 button_1 = customtkinter.CTkButton(text='VERIFICAR',master=frame_1, command=button_callback)
 button_1.pack(pady=10, padx=10)
+#------------------------------------------------------------------------------------------
 
+# frame_2 = customtkinter.CTkFrame(master=app)
+# frame_2.pack(pady=20, padx=60, fill="both", expand=True)
+
+label_2 = customtkinter.CTkLabel(master=frame_1, justify=customtkinter.CENTER,text="Realizar test de velocidad")
+label_2.pack(pady=10, padx=10)
+
+# entry_2 = customtkinter.CTkEntry(master=frame_1, placeholder_text="Ingresar la IP")
+# entry_2.pack(pady=10, padx=10)
+
+button_2 = customtkinter.CTkButton(text='VERIFICAR',master=frame_1, command=velocidad)
+button_2.pack(pady=10, padx=10)
 app.mainloop()
