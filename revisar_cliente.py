@@ -34,24 +34,24 @@ def check_cliente(ip):
         dhcp = tuple(dhcp)
         #------------------------------------------------------------------
         #------------------------------------------------------------------
-        resultadoa = f'El mac del equipo  de {radio_name}\nseria {mac_address}.\nConectado por {ssid} con señal de {rx_signal01}/{tx_signal01} a {distance}km\nCCQ de {rx_ccq}/{tx_ccq}%\n{ether_result}'
+        resultadoa = f'El mac del equipo  de {radio_name}\nseria {mac_address}.\nConectado por {ssid} con señal de {rx_signal01}/{tx_signal01} a {distance}km\nCCQ de {rx_ccq}/{tx_ccq}%\n{ether_result}.\n'
         
         #------------------------------------------------------------------
+        lista = ""
         if len(dhcp) != 0:
             for conectados in dhcp:
-                # host = print(json.dumps(conectados, indent=4))
-                # host2 = conectados.keys()
-                # print(host2)
-                try:
-                    resultadob = f'{resultadoa}\n La ip ' + conectados['address']+' posee host-name '+ conectados['host-name']
-                    
-                except:
-                    resultadob = f'{resultadoa}\nLa ip ' + conectados['address']+' no posee host-name '
-                    
+                # print(json.dumps(conectados))
+                if "host-name" in conectados:
+                    lista += f"El equipo conectado con ip {conectados['address']} seria el {conectados['host-name']}.\n"
+                    # print(f"El equipo conectado con ip {conectados['address']} seria el {conectados['host-name']}")
+                else:
+                    lista += f"El equipo conectado con ip {conectados['address']} no posee host-name.\n"
+                    # print(f"El equipo conectado con ip {conectados['address']} no posee host-name")
                 
         else:
-            resultadob = "no hay nadie conectado"
-        return resultadoa+resultadob 
+            lista = "no hay nadie conectado"
+        
+        print(resultadoa,lista)
+        return resultadoa + lista
     except:
         return f'Ocurrio algun error al conectar con {ip}'
-    

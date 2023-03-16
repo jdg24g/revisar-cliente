@@ -14,7 +14,7 @@ def check_ethernet_interface(ip, port=22, username='tre', password='hhjj'):
             resultado = re.search(patron, datos)
             if resultado:
                 bits_por_segundo = resultado.group(1)
-                print(f"El rate se encuentra a: {bits_por_segundo}")
+                # print(f"El rate se encuentra a: {bits_por_segundo}")
                 return f"El rate se encuentra a: {bits_por_segundo}"
             else:
                 print("No se encontró ninguna coincidencia.")
