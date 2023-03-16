@@ -43,15 +43,15 @@ def check_cliente(ip):
                 # host2 = conectados.keys()
                 # print(host2)
                 try:
-                    resultadoa = f'{resultadoa}\n La ip ' + conectados['address']+' posee host-name '+ conectados['host-name']
+                    resultadob = f'{resultadoa}\n La ip ' + conectados['address']+' posee host-name '+ conectados['host-name']
                     
                 except:
-                    resultadoa = f'{resultadoa}\nLa ip ' + conectados['address']+' no posee host-name '
+                    resultadob = f'{resultadoa}\nLa ip ' + conectados['address']+' no posee host-name '
                     
                 
         else:
-            return "no hay nadie conectado"
-        return resultadoa+resultadoa 
+            resultadob = "no hay nadie conectado"
+        return resultadoa+resultadob 
     except:
         return f'Ocurrio algun error al conectar con {ip}'
     
