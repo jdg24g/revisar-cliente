@@ -15,6 +15,7 @@ def check_ethernet_interface(ip, port=22, username='tre', password='hhjj'):
             if resultado:
                 bits_por_segundo = resultado.group(1)
                 print(bits_por_segundo)
+                return bits_por_segundo
             else:
                 print("No se encontró ninguna coincidencia.")
 
@@ -55,6 +56,7 @@ def mirar_test(ip,port='22', username='tre',password='hhjj'):
             if resultado:
                 bits_por_segundo = resultado.group(1)
                 print(bits_por_segundo)
+                return bits_por_segundo
             else:
                 print("No se encontró ninguna coincidencia.")
 
