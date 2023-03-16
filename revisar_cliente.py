@@ -51,7 +51,7 @@ def check_cliente(ip):
                 
         else:
             return "no hay nadie conectado"
-        return resultadoa 
+        return resultadoa+resultadoa 
     except:
         return f'Ocurrio algun error al conectar con {ip}'
     
