@@ -61,4 +61,3 @@ def mirar_test(ip,port='22', username='tre',password='hhjj'):
     except:
             print( f'Hubo algun error de lectura')
             return f'Hubo algun error de lectura'
-check_ethernet_interface(ip="192.168.31.138")
