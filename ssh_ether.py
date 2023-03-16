@@ -1,4 +1,5 @@
 import paramiko
+import re
 def check_ethernet_interface(ip, port=22, username='tre', password='hhjj'):
     try:
         with paramiko.SSHClient() as client:
@@ -8,14 +9,14 @@ def check_ethernet_interface(ip, port=22, username='tre', password='hhjj'):
 
             stdin, stdout, stderr = client.exec_command('interface ethernet monitor ether1 duration=1s')
             datos = stdout.read().decode('utf-8')
-            # print(len(datos), datos)
-
-            if datos.find("rate: 100Mbps") != -1:
-                return datos[129:142]
-            elif datos.find("rate: 10Mbps") != -1:
-                return datos[129:141]
+            #se utiliza expresiones regulares para ver el rate
+            patron = r'rate:\s+([^\s]+)'
+            resultado = re.search(patron, datos)
+            if resultado:
+                bits_por_segundo = resultado.group(1)
+                print(bits_por_segundo)
             else:
-                return datos[129:142]
+                print("No se encontró ninguna coincidencia.")
 
     except:
         return f"No se pudo conectar con {ip}"
@@ -46,6 +47,18 @@ def mirar_test(ip,port='22', username='tre',password='hhjj'):
             stdin, stdout, stderr = client.exec_command('interface monitor-traffic wlan1 duration=1s')
             datos = stdout.read().decode('utf-8')
             print(datos)
+            
+            patron = r'rx-bits-per-second:\s+([^\s]+)'
+
+            resultado = re.search(patron, datos)
+
+            if resultado:
+                bits_por_segundo = resultado.group(1)
+                print(bits_por_segundo)
+            else:
+                print("No se encontró ninguna coincidencia.")
+
     except:
             print( f'Hubo algun error de lectura')
             return f'Hubo algun error de lectura'
+check_ethernet_interface(ip="192.168.31.138")
