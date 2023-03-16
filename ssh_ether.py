@@ -14,8 +14,8 @@ def check_ethernet_interface(ip, port=22, username='tre', password='hhjj'):
             resultado = re.search(patron, datos)
             if resultado:
                 bits_por_segundo = resultado.group(1)
-                print(bits_por_segundo)
-                return bits_por_segundo
+                print(f"El rate se encuentra a: {bits_por_segundo}")
+                return f"El rate se encuentra a: {bits_por_segundo}"
             else:
                 print("No se encontró ninguna coincidencia.")
 
@@ -47,7 +47,7 @@ def mirar_test(ip,port='22', username='tre',password='hhjj'):
 
             stdin, stdout, stderr = client.exec_command('interface monitor-traffic wlan1 duration=1s')
             datos = stdout.read().decode('utf-8')
-            print(datos)
+            # print(datos)
             
             patron = r'rx-bits-per-second:\s+([^\s]+)'
 
@@ -55,8 +55,8 @@ def mirar_test(ip,port='22', username='tre',password='hhjj'):
 
             if resultado:
                 bits_por_segundo = resultado.group(1)
-                print(bits_por_segundo)
-                return bits_por_segundo
+                print(f"La velocidad seria de descarga seria de: {bits_por_segundo}")
+                return f"La velocidad seria de descarga seria de: {bits_por_segundo}"
             else:
                 print("No se encontró ninguna coincidencia.")
 
