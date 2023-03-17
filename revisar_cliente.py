@@ -11,8 +11,8 @@ def check_cliente(ip):
         ether_result = ether
     try:
         api = connect(
-        username='tre',
-        password='hhjj',
+        username='p',
+        password='p',
         host=ip)
         #------------------------------------------------------------------
         wireless_information = api.path('interface/wireless')
