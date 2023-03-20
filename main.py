@@ -43,16 +43,4 @@ entry_1.pack(pady=10, padx=10)
 button_1 = customtkinter.CTkButton(text='VERIFICAR',master=frame_1, command=button_callback)
 button_1.pack(pady=10, padx=10)
 #------------------------------------------------------------------------------------------
-
-# frame_2 = customtkinter.CTkFrame(master=app)
-# frame_2.pack(pady=20, padx=60, fill="both", expand=True)
-
-label_2 = customtkinter.CTkLabel(master=frame_1, justify=customtkinter.CENTER,text="Realizar test de velocidad")
-label_2.pack(pady=10, padx=10)
-
-# entry_2 = customtkinter.CTkEntry(master=frame_1, placeholder_text="Ingresar la IP")
-# entry_2.pack(pady=10, padx=10)
-
-button_2 = customtkinter.CTkButton(text='VERIFICAR',master=frame_1, command=velocidad)
-button_2.pack(pady=10, padx=10)
 app.mainloop()
