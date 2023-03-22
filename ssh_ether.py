@@ -24,7 +24,7 @@ def check_ethernet_interface(ip, port=22, username='p', password='p'):
 
 
 #inicia un test de velocidad
-def open_test(ip,port='22', username='tre',password='hhjj'):
+def open_test(ip,port='22', username='p',password='p'):
     try:
         with paramiko.SSHClient() as client:
             client.set_missing_host_key_policy(paramiko.AutoAddPolicy())
