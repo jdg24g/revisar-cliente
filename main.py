@@ -45,7 +45,6 @@ button_1.pack(pady=10, padx=10)
 #------------------------------------------------------------------------------------------
 
 
-
 label_2 = customtkinter.CTkLabel(master=frame_1, justify=customtkinter.CENTER,text="Realizar test de velocidad")
 label_2.pack(pady=10, padx=10)
 
